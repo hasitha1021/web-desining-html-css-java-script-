@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+	alert("WELCOME HASITHA PROFILE")
+</script>
+    <title>My Profile</title>
+    <style>
+        body {
+            background-color: #E6F5FF;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 36px;
+            color: #333;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .profile-image {
+            flex: 0 0 auto;
+            margin-right: 20px;
+        }
+        .profile-image img {
+            width: 200px;
+            height: 220px;
+            border-radius: 50%;
+            border: 4px solid #FFF;
+        }
+        .profile-details {
+            flex: 1 1 auto;
+        }
+        .profile-details h1 {
+            font-size: 28px;
+            color: #555;
+            margin-top: 0;
+        }
+        .profile-details p {
+            margin: 0;
+            color: #777;
+        }
+        .profile-links {
+            margin-top: 30px;
+        }
+        .profile-links a {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .profile-links a:hover {
+            color: #FF6600;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+        .footer marquee {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><b>My Profile</b></h1>
+        </div>
+
+        <hr>
+
+        <div class="profile">
+            <div class="profile-image">
+                <img src="photo_2022-06-01_11-19-51.jpg" alt="Profile Image">
+            </div>
+            <div class="profile-details">
+                <h1>MY PERSONAL DETAILS</h1>
+                <p>
+                    Name: Hasitha Ekanayaka<br>
+                    Age: 22<br>
+                    Birthday: 2000/10/21<br>
+                    Sex: Male<br>
+                    Nationality: Sri Lankan<br>
+                    Religion: Buddhism<br>
+                    Civil Status: Single
+                </p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="profile-links">
+            <a href="2.html">1. Education</a>
+            <a href="3.html">2. Social Works</a>
+            <a href="4.html">3. Contact Details</a>
+            <a href="5.html" onclick="displayAsterisks()">4. Sports</a>
+        </div>
+
+        <hr>
+
+        <div class="footer">
+            <marquee direction="right">Welcome to My Profile Page</marquee>
+        </div>
+    </div>
+
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const colors = ["#FF5733", "#C70039", "#900C3F", "#581845", "#4059AD", "#20A39E", "#3F7CAC"];
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            
+            for (let i = 0; i < colors.length; i++) {
+                const radius = 50 + 30 * Math.sin(Date.now() * 0.005 + i * 0.4);
+                const angle = Date.now() * 0.005 + i * 0.2;
+                const x = centerX + radius * Math.cos(angle);
+                const y = centerY + radius * Math.sin(angle);
+                
+                ctx.beginPath();
+                ctx.arc(x, y, 5, 0, Math.PI * 2);
+                ctx.fillStyle = colors[i];
+                ctx.fill();
+            }
+            
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+        
+        function displayAsterisks() {
+            alert("Asterisks will be displayed!");
+        }
+    </script>
+</body>
+</html>
